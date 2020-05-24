@@ -34,7 +34,7 @@ pipeline {
                                     sshTransfer(
                                         sourceFiles: 'target/*',
                                         removePrefix: 'target/',
-                                        remoteDirectory: '/tmp/files',
+                                        remoteDirectory: '/apache/apache-tomcat-9.0.35/webapps/',
                                         
                                         
                                     )
