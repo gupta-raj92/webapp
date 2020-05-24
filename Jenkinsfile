@@ -15,7 +15,7 @@ pipeline {
         
         stage('Example4') {
             steps {
-                sh 'scp target/mvn-hello-world.war 3.14.248.176:/apache/apache-tomcat-9.0.35/webapps/'
+                sh 'scp target/mvn-hello-world.war /apache/apache-tomcat-9.0.35/webapps/'
             }
         }
     }
