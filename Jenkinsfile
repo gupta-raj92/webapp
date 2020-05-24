@@ -5,7 +5,7 @@ pipeline {
         stage('Deploy') {
             
             steps {
-                mvn clean package
+                mvn clean package }
                   }
                          }
           }
