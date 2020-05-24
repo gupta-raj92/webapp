@@ -32,7 +32,7 @@ pipeline {
                                 ], 
                                 transfers: [
                                     sshTransfer(
-                                        sourceFiles: 'target/mvn-hello-world.war',
+                                        sourceFiles: 'target/*',
                                         removePrefix: 'target/',
                                         remoteDirectory: '/tmp',
                                         
