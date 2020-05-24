@@ -13,9 +13,34 @@ pipeline {
             }
         }
         
-        stage('Example4') {
+        stage('DeployToStaging') {
+            when {
+                branch 'master'
+            }
             steps {
-                sh 'scp target/mvn-hello-world.war 3.14.248.176:/apache/apache-tomcat-9.0.35/webapps/'
+                withCredentials([usernamePassword(credentialsId: 'webserver_user', usernameVariable: 'USERNAME', passwordVariable: 'USERPASS')]) {
+                    sshPublisher(
+                        failOnError: true,
+                        continueOnError: false,
+                        publishers: [
+                            sshPublisherDesc(
+                                configName: 'staging',
+                                sshCredentials: [
+                                    username: "$USERNAME",
+                                    encryptedPassphrase: "$USERPASS"
+                                ], 
+                                transfers: [
+                                    sshTransfer(
+                                        sourceFiles: 'target/mvn-hello-world.war',
+                                        removePrefix: 'target/',
+                                        remoteDirectory: '/tmp',
+                                        
+                                    )
+                                ]
+                            )
+                        ]
+                    )
+                }
             }
         }
     }
