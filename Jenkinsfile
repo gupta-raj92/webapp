@@ -9,7 +9,7 @@ pipeline {
               }
             }
             steps {
-                echo "Great work"
+                mvn -B -DskipTests clean package
             }
         }
     }
