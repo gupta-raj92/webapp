@@ -10,6 +10,7 @@ pipeline {
       stage('Example3') {
             steps {
                 sh 'mvn -e package'
+                archiveArtifacts artifacts: target/myfolder.zip
             }
         }
         
@@ -34,6 +35,7 @@ pipeline {
                                         sourceFiles: 'target/mvn-hello-world.war',
                                         removePrefix: 'target/',
                                         remoteDirectory: '/tmp',
+                                        
                                         
                                     )
                                 ]
