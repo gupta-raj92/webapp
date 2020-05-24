@@ -34,7 +34,7 @@ pipeline {
                                     sshTransfer(
                                         sourceFiles: 'target/*',
                                         removePrefix: 'target/',
-                                        remoteDirectory: '/tmp',
+                                        remoteDirectory: '/tmp/files',
                                         
                                         
                                     )
