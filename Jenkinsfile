@@ -10,7 +10,7 @@ pipeline {
       stage('Example3') {
             steps {
                 sh 'mvn -e package'
-                archiveArtifacts artifacts: 'target/myfolder.zip'
+                archiveArtifacts artifacts: 'target.zip'
             }
         }
         
