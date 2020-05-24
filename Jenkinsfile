@@ -9,7 +9,7 @@ pipeline {
               }
             }
             steps {
-                mvn -B -DskipTests clean package
+                mvn -B -DskipTests package
             }
         }
     }
