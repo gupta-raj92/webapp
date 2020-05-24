@@ -3,7 +3,7 @@ pipeline {
     stages { 
         stage('Example') {
             steps {
-                ehco " built"
+                echo " built"
             }
         }
     }
