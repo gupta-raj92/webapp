@@ -3,7 +3,7 @@ pipeline {
     stages { 
         stage('Example') {
             steps {
-                mvn clean install
+                sh mvn --version
             }
         }
     }
